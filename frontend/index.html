@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Mini RAG | Document AI</title>
+
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+<div class="app">
+
+    <aside class="sidebar">
+        <div class="brand">
+            <span class="brand-icon">✦</span>
+            <span>Mini RAG</span>
+        </div>
+
+        <p class="sidebar-label">YOUR DOCUMENT</p>
+
+        <label class="upload-box" for="pdfInput">
+            <span class="upload-icon">↑</span>
+            <strong>Upload PDF</strong>
+            <small>Choose a document to analyze</small>
+        </label>
+
+        <input
+            type="file"
+            id="pdfInput"
+            accept=".pdf,application/pdf"
+            hidden
+        >
+
+        <div id="documentCard" class="document-card hidden">
+            <span>📄</span>
+            <div>
+                <strong id="filename"></strong>
+                <small id="chunkCount"></small>
+            </div>
+        </div>
+
+        <p id="uploadStatus" class="status"></p>
+
+        <div class="sidebar-bottom">
+            <button id="newChatBtn" class="secondary-btn">
+                + New Chat
+            </button>
+
+            <p>Powered by LangChain, Jina, MongoDB & Groq</p>
+        </div>
+    </aside>
+
+    <main class="main">
+
+        <header class="topbar">
+            <div>
+                <h2>Document Assistant</h2>
+                <p>Ask questions grounded in your PDF</p>
+            </div>
+            <span class="online">● Ready</span>
+        </header>
+
+        <section id="chatMessages" class="chat-messages">
+            <div class="welcome">
+                <div class="welcome-icon">✦</div>
+                <h1>Chat with your documents</h1>
+                <p>
+                    Upload a PDF and ask questions.
+                    I'll answer using the information
+                    available in your document.
+                </p>
+            </div>
+        </section>
+
+        <form id="chatForm" class="chat-input-area">
+            <div class="input-container">
+                <textarea
+                    id="questionInput"
+                    placeholder="Ask something about your document..."
+                    rows="1"
+                    required
+                ></textarea>
+
+                <button type="submit" id="sendBtn">
+                    ➤
+                </button>
+            </div>
+
+            <p class="disclaimer">
+                Answers are AI-generated. Verify important information
+                against the source document.
+            </p>
+        </form>
+
+    </main>
+
+</div>
+
+<script src="/static/script.js"></script>
+</body>
+</html>
